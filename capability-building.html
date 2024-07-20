@@ -5,29 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Capability Building</title>
     <style>
-      #mainPage {
-        display: none;
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      #loader-container {
+        position: fixed;
+        inset: 0;
+        z-index: 1001;
+        background-color: #0c0603;
+        display: grid;
+        place-content: center;
+        transition: opacity 0.4s ease-in-out, visibilty 0.4s ease-in-out;
       }
 
       #loader {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 120px;
-        height: 120px;
-        margin: -76px 0 0 -76px;
-        border: 16px solid #f3f3f3;
+        width: 4rem;
+        height: 4rem;
+        border: 0.4rem solid #f27541;
+        border-left-color: transparent;
+        border-right-color: transparent;
         border-radius: 50%;
-        border-top: 16px solid #4825c7;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
+        animation: spinner 0.8s ease alternate infinite;
+      }
+
+      @keyframes spinner {
+        to {
+          transform: rotate(1turn) scale(1.2);
+        }
+      }
+
+      #loader-container.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #mainPage {
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+      }
+
+      #mainPage.visible {
+        opacity: 1;
       }
     </style>
-  <script defer src="bundle.0ccd7f044c9d26ec3e78.js"></script></head>
+  <script defer src="bundle.6cc3e71fade97ec18b25.js"></script></head>
   <body>
-    <div id="loader"></div>
+    <div id="loader-container">
+      <div id="loader"></div>
+    </div>
     <div id="mainPage">
       <main class="cap-building">
         <header-component></header-component>
@@ -42,76 +86,87 @@
             <h1>Electric Vehicle (EV) Thermal Management</h1>
             <div class="row">
               <div class="col-12">
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./ev-thermal-management.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Fundamentals of EV Thermal Management</h3>
-                      <p>
-                        Basic Thermodynamics, Modes of Heat Transfer, Basics of
-                        Refrigeration and Air Conditioning, Temperature,
-                        Pressure, Fluid Flow, Heat Transfer, Temperature
-                        Difference, Pressure Drop, Air Flow, Coolant Flow, Heat
-                        Exchanger, Heat Generation, Heat Dissipation, Heat
-                        Transfer Coefficients, Application in EV Thermal
-                        Management, Case Studies.
-                      </p>
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./ev-thermal-management.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Fundamentals of EV Thermal Management</h3>
+                        <p>
+                          Basic Thermodynamics, Modes of Heat Transfer, Basics
+                          of Refrigeration and Air Conditioning, Temperature,
+                          Pressure, Fluid Flow, Heat Transfer, Temperature
+                          Difference, Pressure Drop, Air Flow, Coolant Flow,
+                          Heat Exchanger, Heat Generation, Heat Dissipation,
+                          Heat Transfer Coefficients, Application in EV Thermal
+                          Management, Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./li-ion-thermal-management.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Li-Ion Battery Thermal Management</h3>
-                      <p>
-                        Understanding the Battery Pack, Layout, Working,
-                        Mechanism of Heat Generation, Modes of Thermal
-                        Management, Passive Thermal Management, Active Thermal
-                        Management, Testing and Validation, Case Studies -
-                        Temperature Distribution, Temperature Uniformity, Heat
-                        Transfer Analysis, Comparative Study of Various Battery
-                        Thermal Management Systems.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./li-ion-thermal-management.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Li-Ion Battery Thermal Management</h3>
+                        <p>
+                          Understanding the Battery Pack, Layout, Working,
+                          Mechanism of Heat Generation, Modes of Thermal
+                          Management, Passive Thermal Management, Active Thermal
+                          Management, Testing and Validation, Case Studies -
+                          Temperature Distribution, Temperature Uniformity, Heat
+                          Transfer Analysis, Comparative Study of Various
+                          Battery Thermal Management Systems.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./power-electronics-cap.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Motor & Power Electronics Thermal Management</h3>
-                      <p>
-                        Introduction to Traction Motors and Power Electronics,
-                        Layout, Working, Identification of Heat Generating
-                        Elements, Mechanism of Heat Generation, Heat Load, Modes
-                        of Thermal Management, Passive, Active, Air Cooled,
-                        Liquid Cooled, Testing and Validation, Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./power-electronics-cap.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Motor & Power Electronics Thermal Management</h3>
+                        <p>
+                          Introduction to Traction Motors and Power Electronics,
+                          Layout, Working, Identification of Heat Generating
+                          Elements, Mechanism of Heat Generation, Heat Load,
+                          Modes of Thermal Management, Passive, Active, Air
+                          Cooled, Liquid Cooled, Testing and Validation, Case
+                          Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./ev-car-thermal-management-cap.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Electric Vehicle Management</h3>
-                      <p>
-                        Introduction to EV System and Subsystem, Layout and
-                        Requirements, Source of Energy, Priority Setting,
-                        Battery Thermal Management vs In-Cab Thermal Management,
-                        Electronics Thermal Management vs Motor Thermal
-                        Management Optimizations, Temperature Bands, Thermal
-                        Comfort, Testing and Validation, Case Studies.
-                      </p>
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./ev-car-thermal-management-cap.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Electric Vehicle Management</h3>
+                        <p>
+                          Introduction to EV System and Subsystem, Layout and
+                          Requirements, Source of Energy, Priority Setting,
+                          Battery Thermal Management vs In-Cab Thermal
+                          Management, Electronics Thermal Management vs Motor
+                          Thermal Management Optimizations, Temperature Bands,
+                          Thermal Comfort, Testing and Validation, Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -125,140 +180,168 @@
             <h1>Automotive Thermal Management - IC Engine</h1>
             <div class="row">
               <div class="col-12">
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./heat-transfer.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Fundamentals of Thermal Management</h3>
-                      <p>
-                        Laws of Thermodynamics, Modes of Heat Transfer, Basics
-                        of Refrigeration and Air conditioning, Thermal
-                        Properties, Temperature, Pressure, Fluid Flow, Heat
-                        Generation, Heat Dissipation, Heat Transfer
-                        Coefficients, Applications in Automotive Systems, Case
-                        Studies.
-                      </p>
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./heat-transfer.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Fundamentals of Thermal Management</h3>
+                        <p>
+                          Laws of Thermodynamics, Modes of Heat Transfer, Basics
+                          of Refrigeration and Air conditioning, Thermal
+                          Properties, Temperature, Pressure, Fluid Flow, Heat
+                          Generation, Heat Dissipation, Heat Transfer
+                          Coefficients, Applications in Automotive Systems, Case
+                          Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./ic-engine-thermal-management.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Engine Cooling System (ICS)</h3>
-                      <p>
-                        Layout, Working, Heat-load Calculation, Max Speed,
-                        Thermal Mapping, Hot Shut-Off, ATB, Component Selection,
-                        Low Fidelity Component and System Simulation, Front
-                        Loading, Mule Testing, Correlations Development,
-                        Component, System and Vehicle Testing, Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./ic-engine-thermal-management.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Engine Cooling System (ICS)</h3>
+                        <p>
+                          Layout, Working, Heat-load Calculation, Max Speed,
+                          Thermal Mapping, Hot Shut-Off, ATB, Component
+                          Selection, Low Fidelity Component and System
+                          Simulation, Front Loading, Mule Testing, Correlations
+                          Development, Component, System and Vehicle Testing,
+                          Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./cabin-thermal-management.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>In-Cab Thermal Management (HVAC)</h3>
-                      <p>
-                        Fluid State, Single Phase, Multi-Phase, Refrigeration
-                        Cycle, Phase Diagram, Psychrometric Chart, Condensation,
-                        Evaporation, Boiling, Layout, Working, Heat-load
-                        Calculation, Component Selection, Vehicle Testing, Cabin
-                        Cool-Down, Cabin Heat-Up, Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./cabin-thermal-management.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>In-Cab Thermal Management (HVAC)</h3>
+                        <p>
+                          Fluid State, Single Phase, Multi-Phase, Refrigeration
+                          Cycle, Phase Diagram, Psychrometric Chart,
+                          Condensation, Evaporation, Boiling, Layout, Working,
+                          Heat-load Calculation, Component Selection, Vehicle
+                          Testing, Cabin Cool-Down, Cabin Heat-Up, Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./component-selection.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Sizing of HVAC & ICS System</h3>
-                      <p>
-                        Heat-load calculation, Component Selection, System
-                        Selection, Low Fidelity Component and System Simulation,
-                        Front Loading, Mule Testing, Correlations Development,
-                        Component, system and Vehicle Testing, RWUP Testing,
-                        Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./component-selection.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Sizing of HVAC & ICS System</h3>
+                        <p>
+                          Heat-load calculation, Component Selection, System
+                          Selection, Low Fidelity Component and System
+                          Simulation, Front Loading, Mule Testing, Correlations
+                          Development, Component, system and Vehicle Testing,
+                          RWUP Testing, Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./air-quality.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Thermal Comfort Management</h3>
-                      <p>
-                        Air Quality, Metabolic Rate, Clothing Insulation, Air
-                        Temperature, Mean Radiant Temperature, Air Speed,
-                        Relative Humidity, Human Physiological Requirements,
-                        Thermal Comfort Models, Simulations, Testing, Case
-                        Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./air-quality.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Thermal Comfort Management</h3>
+                        <p>
+                          Air Quality, Metabolic Rate, Clothing Insulation, Air
+                          Temperature, Mean Radiant Temperature, Air Speed,
+                          Relative Humidity, Human Physiological Requirements,
+                          Thermal Comfort Models, Simulations, Testing, Case
+                          Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./air-condition.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Validation and Homologation</h3>
-                      <p>
-                        Coolant Flow/Refrigerant flow, Air flow, Pressure Drops,
-                        Component & System Capacity, Hot Shutoff, Max Speed &
-                        Max Torque Test for ICS System, Cool-down & Heat-up,
-                        Defrost & De-mist Test for HVAC System.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./air-condition.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Validation and Homologation</h3>
+                        <p>
+                          Coolant Flow/Refrigerant flow, Air flow, Pressure
+                          Drops, Component & System Capacity, Hot Shutoff, Max
+                          Speed & Max Torque Test for ICS System, Cool-down &
+                          Heat-up, Defrost & De-mist Test for HVAC System.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./internal-cabin-thermal-management.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Simulation Added Component & System Sizing</h3>
-                      <p>
-                        0D, 1D, 2D and 3D Simulations, Low Fidelity Simulations,
-                        High Fidelity Simulation, Integration of Low Fidelity
-                        and High-Fidelity Simulations, Cycle of Product
-                        Development, System, Sub-system and Component Sizing.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img
+                        src="./internal-cabin-thermal-management.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Simulation Added Component & System Sizing</h3>
+                        <p>
+                          0D, 1D, 2D and 3D Simulations, Low Fidelity
+                          Simulations, High Fidelity Simulation, Integration of
+                          Low Fidelity and High-Fidelity Simulations, Cycle of
+                          Product Development, System, Sub-system and Component
+                          Sizing.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img
-                      src="./automotive-energy-flow-consumption.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Automotive Energy Management</h3>
-                      <p>
-                        Energy Flow, Energy Consumption, Component & System
-                        Efficiency, DTL, Energy Consumption vs Effectiveness of
-                        Thermal Management System, Future Trends and Ways to
-                        Enhance Efficiencies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img
+                        src="./automotive-energy-flow-consumption.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Automotive Energy Management</h3>
+                        <p>
+                          Energy Flow, Energy Consumption, Component & System
+                          Efficiency, DTL, Energy Consumption vs Effectiveness
+                          of Thermal Management System, Future Trends and Ways
+                          to Enhance Efficiencies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -269,36 +352,41 @@
             <h1>Tyre Mechanics</h1>
             <div class="row">
               <div class="col-12">
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./vehicle-aero-dynamics.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Introduction to Vehicle Dynamics</h3>
-                      <p>
-                        Introduction to Vehicle Dynamics, Longitudinal and
-                        Lateral Dynamics, Load Transfers, Stability and Steering
-                        Mechanism, Ride & Handling Response of a Vehicle,
-                        Vertical Dynamics.
-                      </p>
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./vehicle-aero-dynamics.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Introduction to Vehicle Dynamics</h3>
+                        <p>
+                          Introduction to Vehicle Dynamics, Longitudinal and
+                          Lateral Dynamics, Load Transfers, Stability and
+                          Steering Mechanism, Ride & Handling Response of a
+                          Vehicle, Vertical Dynamics.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./tyre-mechanics.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Introduction to Tyre Mechanics</h3>
-                      <p>
-                        Introduction to Tyres, a Brief History, Types and
-                        Construction of a Typical Tyre, Unique Properties of
-                        Rubber, Design, Simulation, Manufacture, Testing and
-                        Performance Metrics of Tyres With Case Studies, Tyre for
-                        EV Application.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./tyre-mechanics.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Introduction to Tyre Mechanics</h3>
+                        <p>
+                          Introduction to Tyres, a Brief History, Types and
+                          Construction of a Typical Tyre, Unique Properties of
+                          Rubber, Design, Simulation, Manufacture, Testing and
+                          Performance Metrics of Tyres With Case Studies, Tyre
+                          for EV Application.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -309,65 +397,77 @@
             <h1>Benchmarking, Prototyping & Product Life Cycle</h1>
             <div class="row">
               <div class="col-12">
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./product-benchmarking.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Product Benchmarking</h3>
-                      <p>
-                        Introduction and Chronological Development in
-                        Benchmarking, Users, Initiators and Implements of
-                        Benchmarking, Classifications With Advantages and
-                        Disadvantages, Case Studies.
-                      </p>
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./product-benchmarking.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Product Benchmarking</h3>
+                        <p>
+                          Introduction and Chronological Development in
+                          Benchmarking, Users, Initiators and Implements of
+                          Benchmarking, Classifications With Advantages and
+                          Disadvantages, Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./3d-printer.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Rapid Prototyping</h3>
-                      <p>
-                        History of Rapid Prototyping, Principle of 3D Printing,
-                        3D Printing Technologies, Applications, Advantages and
-                        Limitations of Rapid Prototyping, Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./3d-printer.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Rapid Prototyping</h3>
+                        <p>
+                          History of Rapid Prototyping, Principle of 3D
+                          Printing, 3D Printing Technologies, Applications,
+                          Advantages and Limitations of Rapid Prototyping, Case
+                          Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./vehicle-scrappage.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>Vehicle Scrappage (3R)</h3>
-                      <p>
-                        Introduction, Current Scenario of Old Vehicles, New
-                        Policy – Objectives and Advantages, Policy Summary and
-                        Features, Process flow, Business Opportunity and
-                        Financial Incentives, FAQs.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./vehicle-scrappage.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>Vehicle Scrappage (3R)</h3>
+                        <p>
+                          Introduction, Current Scenario of Old Vehicles, New
+                          Policy – Objectives and Advantages, Policy Summary and
+                          Features, Process flow, Business Opportunity and
+                          Financial Incentives, FAQs.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row gx-0 item hidden">
-                  <div class="col-md-4 col-sm-3 col-3 image">
-                    <img src="./failure-analysis.jpg" alt="" />
-                  </div>
-                  <div class="col-md-8 col-sm-9 col-9 text">
-                    <div>
-                      <h3>FMEA</h3>
-                      <p>
-                        Definition, Life Cycle of FMEA Project,
-                        Contributors/Owners of FMEA, FMEA Requirements and
-                        Development, DFMEA with Case Studies.
-                      </p>
+
+                <div class="card__entry">
+                  <div class="row gx-0 item card__entry__meta">
+                    <div class="col-md-4 col-sm-3 col-3 image">
+                      <img src="./failure-analysis.jpg" alt="" />
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-9 text">
+                      <div>
+                        <h3>FMEA</h3>
+                        <p>
+                          Definition, Life Cycle of FMEA Project,
+                          Contributors/Owners of FMEA, FMEA Requirements and
+                          Development, DFMEA with Case Studies.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -375,8 +475,18 @@
             </div>
           </div>
         </section>
+        <div>
+          <img
+            src="./scroll-to-top.png"
+            id="scroll-to-top"
+            alt="Scroll to top image"
+          />
+        </div>
         <footer-component></footer-component>
       </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
   </body>
 </html>

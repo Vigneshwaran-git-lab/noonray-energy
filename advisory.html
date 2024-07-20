@@ -5,29 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advisory</title>
     <style>
-      #mainPage {
-        display: none;
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-smooth iframe {
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      #loader-container {
+        position: fixed;
+        inset: 0;
+        z-index: 1001;
+        background-color: #0c0603;
+        display: grid;
+        place-content: center;
+        transition: opacity 0.4s ease-in-out, visibilty 0.4s ease-in-out;
       }
 
       #loader {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 120px;
-        height: 120px;
-        margin: -76px 0 0 -76px;
-        border: 16px solid #f3f3f3;
+        width: 4rem;
+        height: 4rem;
+        border: 0.4rem solid #f27541;
+        border-left-color: transparent;
+        border-right-color: transparent;
         border-radius: 50%;
-        border-top: 16px solid #4825c7;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
+        animation: spinner 0.8s ease alternate infinite;
+      }
+
+      @keyframes spinner {
+        to {
+          transform: rotate(1turn) scale(1.2);
+        }
+      }
+
+      #loader-container.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #mainPage {
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+      }
+
+      #mainPage.visible {
+        opacity: 1;
       }
     </style>
-  <script defer src="bundle.0ccd7f044c9d26ec3e78.js"></script></head>
+  <script defer src="bundle.6cc3e71fade97ec18b25.js"></script></head>
   <body>
-    <div id="loader"></div>
+    <div id="loader-container">
+      <div id="loader"></div>
+    </div>
     <div id="mainPage">
       <main>
         <header-component></header-component>
@@ -37,8 +81,8 @@
         <section class="advisories">
           <div class="container">
             <div class="row">
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -54,8 +98,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -70,8 +114,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -87,8 +131,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -104,8 +148,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -121,8 +165,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -138,8 +182,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -155,8 +199,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="advisories-card hidden">
+              <div class="col-12 card__entry">
+                <div class="advisories-card card__entry__meta">
                   <div class="row gx-0">
                     <div class="col-6 col text">
                       <div>
@@ -175,8 +219,18 @@
             </div>
           </div>
         </section>
+        <div>
+          <img
+            src="./scroll-to-top.png"
+            id="scroll-to-top"
+            alt="Scroll to top image"
+          />
+        </div>
         <footer-component></footer-component>
       </main>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
   </body>
 </html>
